@@ -7,6 +7,7 @@ import sys
 import shutil
 
 from effects import apply_studio_effects 
+BASE_URL = "https://karaoke-backend-xbr1.onrender.com"
 
 app = FastAPI(title="AI Karaoke API")
 
@@ -93,9 +94,9 @@ async def edit_audio(
             create_video_export(final_inst, final_video)
             
             return {
-                "instrumental_url": f"http://127.0.0.1:8000/{final_inst}",
-                "vocals_url": f"http://127.0.0.1:8000/{final_voc}",
-                "video_url": f"http://127.0.0.1:8000/{final_video}"
+                "instrumental_url": f"{BASE_URL}/{final_inst}",
+                "vocals_url": f"{BASE_URL}/{final_voc}",
+                "video_url": f"{BASE_URL}/{final_video}"
             }
             
         except Exception as e:
@@ -119,8 +120,8 @@ async def edit_audio(
             create_video_export(final_edited, final_video)
 
             return {
-                "edited_url": f"http://127.0.0.1:8000/{final_edited}",
-                "video_url": f"http://127.0.0.1:8000/{final_video}"
+                "edited_url": f"{BASE_URL}/{final_edited}",
+                "video_url": f"{BASE_URL}/{final_video}"
             }
         except Exception as e:
             return {"error": f"Failed to apply effects: {str(e)}"}
