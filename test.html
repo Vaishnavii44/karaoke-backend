@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Raw API Tester</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 50px;">
+    <h2>Upload to Python Server</h2>
+    
+<form action="http://127.0.0.1:8000/api/edit-audio" method="post" enctype="multipart/form-data">
+        
+        <label>Select Audio File:</label><br>
+        <input type="file" name="file" required><br><br>
+
+        <label style="font-weight: bold; color: blue;">
+            <input type="checkbox" name="remove_vocals" value="true"> 
+            Remove Vocals (Create Karaoke Track)
+        </label><br><br>
+        
+        <label>Pitch (-12 to 12):</label><br>
+        <input type="number" name="pitch" value="0"><br><br>
+        
+        <label>Volume (e.g., 3.0 for louder):</label><br>
+        <input type="number" name="volume" value="0.0" step="0.1"><br><br>
+        
+        <label>Reverb (0.0 to 1.0):</label><br>
+        <input type="number" name="reverb" value="0.0" step="0.1"><br><br>
+        
+        <button type="submit" style="padding: 10px 20px; font-size: 16px;">Process Audio</button>
+    </form>
+</body>
+</html>
